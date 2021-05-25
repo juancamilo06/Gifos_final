@@ -1,0 +1,154 @@
+@import "variables.scss";
+@import "typography.scss";
+
+//mediante la nueva hoja de estilos, dar los colores para el modo dark
+
+.section-main.dark{ //cuando la etiqueta tenga las dos clases
+    background: $background-gray-dark-mode;
+    //______________BOTÓN VER MAS - GENERICO______________
+    .button-gifo{
+        border-color: $color-white;
+        color: $color-white;
+        &:active{
+            background-color: $color-white;
+            color: $color-black;
+        }
+    }
+    //______________-FULL SCREEN gifs______________
+    .section-full-view{
+        background: $background-gray-dark-mode;
+        color: $color-white;
+    }
+    // _________________-SECCIÓN DE ENCABEZADO________________
+    .section-header{
+        .menu-contain{
+            background: $color-black;
+            .menu-addition{
+                .menu-addition-line{
+                    background-color:  $color-white;
+                }
+            }
+        }
+    }
+    //_________________SECCIÓN DE BUSQUEDA DE gifs__________
+    .section-search{
+        .title{
+            color: $color-white;
+        }
+        .search-contain{
+            border: 1px solid $color-white;
+            .search-input{
+                background: $background-gray-dark-mode;
+                color: $color-white;
+            }
+        }
+        .trending-contents{
+            color: $color-white;
+        }
+        .search-without-result-contain{
+            .search-without-result-title{
+                color: $color-white;
+            }
+        }
+        .results-contain{
+            .results-title{
+                color: $color-white;
+            }
+        }
+    }
+    //__________________SECCIÓN gifs FAVORITOS___________________
+    .section-favorite{
+        .favorite-gifs-title{
+            color: $color-white;
+        }
+    }
+    //____________________SECCIÓN MIS gifs _____________________
+    .section-myGif{
+        .my-gifs-title{
+            color: $color-white;
+        }
+
+    }
+    //__________________SECCIÓN TRENDING gifs___________________
+    .section-trending{
+        background: #222326;
+        .title-trending-gifs, .content-trending-gifs{
+            color: $color-white;
+        }
+    }
+    //__________________SECCIÓN CREATE gifs_______________________
+    .section-createGif{
+        .create-gifs-contain{
+            border-color: $color-white;
+            .create-gifs-contain-screen{
+                border-color: $color-white;
+                .create-gifo-decription-step{
+                    .create-gifo-title{
+                        color: $color-white;
+                    }
+                    .create-gifo-content{
+                        color: $color-white;
+                    }
+                }
+            }
+            .create-gifs-contain-steps{
+                .step-addition{
+                    border-color: $color-white;
+                    color: $color-white;
+                }
+                .step-addition-selected{
+                   background: $color-white;
+                   border-color: $color-white;
+                   color: $color-black;
+                }
+                .chronometer-addition{
+                    color: $color-white;
+                }
+                .record-again-addition{
+                    color: $color-white;
+                    // border-color: $color-white;
+                }
+            }   
+        }
+    }
+    //__________________SECCIÓN FOOTER_______________________
+    .section-footer{
+        .networws-contents {
+            .title-footer {
+                color: $color-white;
+            }
+        }
+        .content-footer {
+            color: $color-white;
+        }
+    }
+}
+@media (min-width: 1024px){
+    .section-main.dark{
+        // _________________-SECCIÓN DE ENCABEZADO________________
+        .section-header{
+            .menu-contain{
+                background: $background-gray-dark-mode;
+                .menu-addition{
+                    color:  $color-white;
+                    .btn_menu {
+                        color:  $color-white;
+                    }
+                }
+            }
+        }
+        //__________________SECCIÓN CREATE gifs_______________________
+        .section-createGif{
+            .create-gifs-contain{
+                .create-gifs-contain-steps{
+                    .record-again-addition{
+                        border-color: $background-gray-dark-mode;
+                        &:hover{
+                            border-color: $secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gifos Acamica</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dark.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- TEMPLATE DE REFERENCIAS PARA CLONAR -->
+    <div class="gifs-contents" id="gifs-contents-reference">
+        <label for="show_fullView">
+            <!--concetar con el input de full screen-->
+            <img src="./assets/img/prueba.png" alt="gifo prueba" class="gifo-img" id="gifo-img"
+                onclick="gifofullViewMobile(this)">
+            <!--LINK DEL GIF-->
+        </label>
+        <div class="gifs-contents-hover">
+            <!--MENU EMERGENTE MEDIANTE HOVER-->
+            <div class="icons-gifs-contents">
+                <div class="gifs-icon delete-icon" onclick="removeGifo(this)">
+                    <!--Icono de borrar-->
+                    <img src="./assets/img/icon-trash-normal.svg" alt="remover icon" class="gifs-icon-normal">
+                    <img src="./assets/img/icon-trash-hover.svg" alt="remover icon" class="gifs-icon-hover">
+                </div>
+                <div class="gifs-icon fav-icon-activate">
+                    <!--Icono de favoritos activado-->
+                    <img src="./assets/img/icon-fav-base.svg" alt="activado" class="gifs-icon-base">
+                    <img src="./assets/img/icon-fav-active.svg" alt="activado" class="gifs-icon-activate">
+                </div>
+                <div class="gifs-icon icon-fav" onclick="newGifo(this)">
+                    <!--Icono de favoritos normal-->
+                    <img src="./assets/img/icon-fav.svg" alt="nuevo gifo" class="gifs-icon-normal">
+                    <img src="./assets/img/icon-fav-hover.svg" alt="nuevo gifo" class="gifs-icon-hover">
+                </div>
+                <div class="gifs-icon icon-download" onclick="downGifo(this)">
+                    <!--Icono de descarga-->
+                    <img src="./assets/img/icon-download.svg" alt="descargalo" class="gifs-icon-normal">
+                    <img src="./assets/img/icon-download-hover.svg" alt="descargalo" class="gifs-icon-hover">
+                </div>
+                <div class="gifs-icon full-screen-icon" onclick="gifofullViewDesktop(this)">
+                    <!--Icono de full screen-->
+                    <label for="show_fullView">
+                        <!--concetar con el input de full screen-->
+                        <img src="./assets/img/icon-max-normal.svg" alt="ampliar" class="gifs-icon-normal">
+                        <img src="./assets/img/icon-max-hover.svg" alt="ampliar" class="gifs-icon-hover">
+                    </label>
+                </div>
+            </div>
+            <p class="user-gifs">User</p>
+            <p class="title-gifs">Título GIFO</p>
+        </div>
+    </div>
+    <!-- SECCION PRINCIPAL -->
+    <div class="section-main">
+        <input type="checkbox" class="show_fullView" id="show_fullView">
+        <!-- SECCION PARA AMPLIAR AL DAR CLICK EN ICONO DE MAXIMIZAR -->
+        <div class="section-full-view">
+            <div class="full-screen-contain">
+                <!-- CERRAR FULL SCREEN -->
+                <label for="show_fullView">
+                    <img src="./assets/img/close.svg" alt="icono para cerrar" class="close-gifo-full-screen"
+                        id="close-full-screen">
+                </label>
+                <!-- SECCIÓN DEL GIFO -->
+                <div class="gifo-section-fs">
+                    <!-- IMG GIFO -->
+                    <img src="./assets/img/prueba.png" alt="gif full screen" class="gifo-full-screen"
+                        id="gifo-full-screen">
+                </div>
+                <!-- DESCRIPCIÓN DEL GIFO -->
+                <div class="description-full-screen">
+                    <p class="user-full-screen" id="user-full-screen">User</p>
+                    <p class="title-full-screen" id="title-full-screen">Título GIFO</p>
+                </div>
+                <!-- favicons -->
+                <div class="addition-full-screen fs-delete-icon" onclick="removeGifo(this)">
+                    <!--Icono de borrar-->
+                    <img src="./assets/img/icon-trash-normal.svg" alt="eliminar"
+                        class=" addition-gifo-fs fs-icon-normal">
+                    <img src="./assets/img/icon-trash-hover.svg" alt="eliminar" class="addition-gifo-fs  fs-icon-hover">
+                </div>
+                <div class="addition-full-screen fs-fav-act-contents">
+                    <img src="./assets/img/icon-fav-base.svg" alt="ampliar" class="addition-gifo-fs fs-fav-act-base">
+                    <img src="./assets/img/icon-fav-active.svg" alt="ampliar" class="fs-fav-act-icon">
+                </div>
+                <div class="addition-full-screen icon-fav-full-screen" onclick="newGifo(this)">
+                    <img src="./assets/img/icon-fav.svg" alt="ampliar" class="fs-icon-normal addition-gifo-fs">
+                    <img src="./assets/img/icon-fav-hover.svg" alt="ampliar" class="fs-icon-hover addition-gifo-fs">
+                </div>
+                <div class="addition-full-screen icon-dow-full-screen" onclick="downGifo(this)">
+                    <img src="./assets/img/icon-download.svg" alt="descargar" class="fs-icon-normal addition-gifo-fs">
+                    <img src="./assets/img/icon-download-hover.svg" alt="descargar"
+                        class="fs-icon-hover addition-gifo-fs">
+                </div>
+            </div>
+        </div>
+        <!-- LINEA SUPERIOR MORADA  -->
+        <hr class="all-lines">
+        <!-- SECCION HEADER -->
+        <header class="section-header">
+            <div class="logo-contents" id="logo-gifs">
+                <img src="./assets/img/logo-desktop.svg" alt="logo principal" class="logo">
+            </div>
+            <input type="checkbox" class="checkbox-menu" id="show-header-menu">
+            <!-- MENU DESPLEGABLE-->
+            <label class="show-menu" id="show-menu" for="show-header-menu">
+                <img src="./assets/img/burger.svg" class="burguer-menu" alt="icono del menú">
+                <img src="./assets/img/close.svg" class="close-menu" alt="cerrar el menú">
+            </label>
+            <!-- LISTA DE OPCIONES -->
+            <div class="menu-contain">
+                <div class="menu-addition night-addition">
+                    <div class="btn_menu" id="btn_night_mode">modo nocturno</div>
+                    <hr class="menu-addition-line">
+                </div>
+                <div class="menu-addition favourite-addition" id="favourite-addition-menu">
+                    <div class="btn_menu">favoritos</div>
+                    <hr class="menu-addition-line">
+                </div>
+                <div class="menu-addition mygifs-addition">
+                    <div class="btn_menu" id="btn_my_gifs">mis GIFOS</div>
+                    <hr class="menu-addition-line">
+                </div>
+                <div class="menu-addition contents-new-gifo">
+                    <div class="btn_menu btn-new-gifo-mobile">
+                        <div>crear GIFOS</div>
+                        <hr class="menu-addition-line btn-new-gifo-mobile">
+                    </div>
+                    <div class="btn-new-gifs-desktop">
+                        <img src="./assets/img/button-crear-gifo.svg" alt="nuevo gif" class="btn-new-gifs-normal">
+                        <img src="./assets/img/CTA-crear-gifo-hover.svg" alt="nuevo gif" class="btn-new-gifs-hover">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- SECCION BUSCADOR DE GIFOS -->
+        <section class="section-search">
+            <h1 class="title" id="page-title">Inspírate, busca, guarda, y crea los mejores <span
+                    class="decoration-title">gifos</span></h1>
+            <div class="welcome-img-contents" id="img-welcome-gifs">
+                <img src="./assets/img/ilustra_header.svg" class="welcome-img" alt="bienvenida header">
+            </div>
+            <!-- BUSQUEDA -->
+            <div class="search-contain">
+                <div class="search-contents">
+                    <img src="./assets/img/icon-search-mod-noc.svg" class="search-icon-active" alt="buscar">
+                    <input type="text" class="search-input" placeholder="Busca gifos y más">
+                    <img src="./assets/img/icon-search.svg" class="search-icon" alt="buscar" id="search-icon">
+                    <img src="./assets/img/close.svg" class="close-icon" alt="buscar" id="close-suggest-icon">
+                </div>
+                <!--SUGERENCIAS Y RESULTADOS-->
+                <div class="suggest-contents">
+                    <div class="suggest-addition" id="suggest-addition-reference">
+                        <img src="./assets/img/icon-search-mod-noc.svg" class="search-icon-suggest" alt="buscar">
+                        <div class="suggest" onclick="selectSuggest(this)">Sugerencia 1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="trending-contents">
+                <h3 class="trending-title">Trending:</h3>
+                <div class="box-popular-tags">
+                    <span class="popular-tag"></span>, 
+                    <span class="popular-tag"></span>, 
+                    <span class="popular-tag"></span>, 
+                    <span class="popular-tag"></span>, 
+                    <span class="popular-tag"></span>
+                </div>
+            </div>
+            <!-- LINEA QUE APARECE AL VER SUGERENCIAS-->
+            <hr class="all-lines-search">
+            <div class="search-without-result-contain">
+                <h2 class="search-without-result-title">Lorem Ipsum</h2>
+                <img src="./assets/img/icon-busqueda-sin-resultado.svg" alt="cuando no hay resultado"
+                    class="search-without-result-img">
+                <p class="search-without-result-content">Intenta con otra búsqueda.</p>
+            </div>
+            <div class="results-contain" id="results-contain">
+                <h2 class="results-title">HOLA</h2>
+                <div class="results-gifs-section" id="results-gifs-section"></div>
+                <div class="button-gifo" id="see-more-button-search">VER MÁS</div>
+            </div>
+        </section>
+        <!-- SECCION DE FAVORITOS -->
+        <section class="section-favorite">
+            <img src="./assets/img/icon-favoritos.svg" alt="favoritos" class="favorite-gifs-icon">
+            <h2 class="favorite-gifs-title">Favoritos</h2>
+            <!-- CONTENEDOR FAVORITOS -->
+            <div class="favorite-gifs-contain" id="favorite-gifs-contain">
+            </div>
+            <!-- CUANDO NO HAY FAVORITOS GUARDADOS -->
+            <div class="without-favorites-contain">
+                <img src="./assets/img/icon-fav-sin-contenido.svg" alt="sin favoritos" class="img-without-favs">
+                <p class="content-without-favs">"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
+            </div>
+            <div class="button-gifo" id="see-more-button-favorite">VER MÁS</div>
+        </section>
+        <!-- SECCION DE LOS GIFOS CREADOS CON RecordRTC -->
+        <section class="section-myGif">
+            <img src="./assets/img/icon-mis-gifos.svg" alt="mis gifos" class="my-gifs-icon">
+            <h2 class="my-gifs-title">Mis GIFOS</h2>
+            <!--CONTENEDOR PRINCIPAL-->
+            <div class="mis-gifs-contain" id="mis-gifs-contain">
+            </div>
+            <!--CUANDO NO HAY RESULTADOS -->
+            <div class="without-my-gifs-contain">
+                <img src="./assets/img/icon-mis-gifos-sin-contenido.svg" alt="sin propios" class="img-without-my-gifs">
+                <p class="content-without-my-gifs">¡Anímate a crear tu primer GIFO!</p>
+            </div>
+            <div class="button-gifo" id="see-more-button-mygifs">VER MÁS</div>
+        </section>
+        <!-- SECCION DE TENDENCIAS -->
+        <section class="section-trending">
+            <h2 class="title-trending-gifs">Trending GIFOS</h2>
+            <p class="content-trending-gifs">Mira los últimos <span class="line-break">GIFOS de nuestra
+                    comunidad.</span></p>
+            <div class="gifs-arrow-contain">
+                <!-- FLECHA IZQUIERDA -->
+                <div class="arrow-icon-contents btn-left" id="arrow-btn-left">
+                    <img src="./assets/img/button-slider-left.svg" alt="flecha izquierda" 
+                        class="arrow-icon">
+                    <img src="./assets/img/button-slider-left-hover.svg" alt="flecha izquierda"
+                        class="arrow-icon-hover">
+                </div>
+                <!-- CONTENEDOR DEL CAROUSEL -->
+                <div class="arrow-contain">
+                    <div class="arrow">
+                        <!-- CONTENEDOR DE GIFOS -->
+                    </div>
+                </div>
+                <!--FLECHA DERECHA -->
+                <div class="arrow-icon-contents btn-right" id="arrow-btn-right">
+                    <img src="./assets/img/button-slider-right.svg" alt="flecha derecha" 
+                    class="arrow-icon">
+                    <img src="./assets/img/button-slider-right-hover.svg" alt="flecha derecha" 
+                    class="arrow-icon-hover">
+                </div>
+            </div>
+        </section>
+        <!-- SECCION PARA CREAR LOS GIFOS -->
+        <section class="section-createGif">
+            <!-- CONTENEDOR PARA LAS IMAGENES DE LA VIDEOCAMARA -->
+            <div class="create-gifs-contain-camara">
+                <img src="./assets/img/element_cinta1.svg" alt="cinta" class="small-camara-tape-img">
+                <img src="./assets/img/element_cinta2.svg" alt="cinta" class="big-camara-tape-img">
+                <img src="./assets/img/element-camara.svg" alt="camara" class="camara-body-img">
+                <img src="./assets/img/element-luz-camara.svg" alt="camara" class="camara-light-img" id="low-light-img">
+                <img src="./assets/img/Path-2.svg" alt="camara" class="camara-light-img turn-off" id="high-light-img">
+            </div>
+            <div class="create-gifs-contain">
+                <!-- CONTENEDOR DONDE SE MOSTRARA EL MAQUETEADO DE LA PARTE PRINCIPAL AL CREAR GIFOS -->
+                <!-- PASO A PASO PARA CREAR EL GIFO -->
+                <div class="create-gifs-contain-screen">
+                    <div class="create-gifo-decription-step show-gifo-step" id="create-gifo-start">
+                        <h2 class="create-gifo-title up-title-gifo ">Aquí podrás</h2>
+                        <h2 class="create-gifo-title">crear tus propios <span class="gifo-title-decoration">gifos</span>
+                        </h2>
+                        <p class="create-gifo-content">¡Crea tu GIFO en sólo 3 pasos!</p>
+                        <p class="create-gifo-content">(sólo necesitas una cámara para grabar un video)</p>
+                    </div>
+                    <div class="create-gifo-decription-step" id="create-gifo-acces-cam">
+                        <h2 class="create-gifo-title up-title-gifo ">¿Nos das acceso </h2>
+                        <h2 class="create-gifo-title">a tu cámara?</h2>
+                        <p class="create-gifo-content">El acceso a tu camara será válido sólo</p>
+                        <p class="create-gifo-content">por el tiempo en el que estés creando el GIFO.</p>
+                    </div>
+                    <div class="cam-screen-contain">
+                        <div class="cam-screen-contents">
+                            <video src="./assets/img/prueba.png" class="cam-stream"></video>
+                            <img src="./" alt="grabar" class="gif-stream">
+                        </div>
+                        <!-- ICONOS DE CREACION DEL GIF Y HOVER A FONDO A MOSTRAR CUANDO FINALICE LA SUBIDA -->
+                        <div class="cam-screen-contents cam-screen-uploading" id="uploaded-gifo-contents">
+                            <div class="cam-screen-icons-contain ">
+                                <div class="cam-screen-icons-contents" id="gifo_created_id" onclick="downGifo(this)">
+                                    <img src="./assets/img/icon-download.svg" alt="descargar" class="cam-screen-icons">
+                                    <img src="./assets/img/icon-download-hover.svg" alt="descargar"
+                                        class="cam-screen-icons-hover">
+                                </div>
+                                <div class="cam-screen-icons-contents">
+                                    <img src="./assets/img/icon-link-normal.svg" alt="descargar"
+                                        class="cam-screen-icons">
+                                    <img src="./assets/img/icon-link-hover.svg" alt="descargar"
+                                        class="cam-screen-icons-hover">
+                                </div>
+                            </div>
+                            <div class="mesagge-create-gifs-contents">
+                                <img src="./assets/img/ok.svg" alt="nuevo gifo" class="icon-create-gifs">
+                                <p class="content-create-gifs">GIFO subido con éxito</p>
+                            </div>
+                        </div>
+                        <div class="cam-screen-contents cam-screen-uploading" id="uploannding-gifo-contents">
+                            <div class="mesagge-create-gifs-contents">
+                                <img src="./assets/img/loader.svg" alt="nuevo gifo"
+                                    class="icon-create-gifs uploading-gifo">
+                                <p class="content-create-gifs">Estamos subiendo tu GIFO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CRONOMETRO CREACION DEL GIFO -->
+                <div class="create-gifs-contain-steps">
+                    <div class="step-addition">1</div>
+                    <div class="step-addition">2</div>
+                    <div class="step-addition">3</div>
+                    <div class="chronometer-addition" id="chronometer">00:00:00</div>
+                    <div class="record-again-addition" id="record-again">repetir captura</div>
+                </div>
+            </div>
+            <img src="./assets/img/pelicula.svg" alt="icono pelicula" class="camara-tape-img">
+            <div class="create-gifs-contain-buttons">
+                <div class="button-gifo button-create-gifo show-bttn" id="btn-start-gifo">comenzar</div>
+                <div class="button-gifo button-create-gifo" id="btn-record-gifo">grabar</div>
+                <div class="button-gifo button-create-gifo" id="btn-end-gifo">finalizar</div>
+                <div class="button-gifo button-create-gifo" id="btn-up-gifo">subir gifo</div>
+            </div>
+        </section>
+        <!-- SECCION PIE DE PAGINA -->
+        <footer class="section-footer">
+            <div class="networws-contents">
+                <h4 class="title-footer">Compartir en:</h4>
+                <a href="https://www.facebook.com/GIPHY/" class="networws-icon-contents">
+                    <img src="./assets/img/icon_facebook.svg" alt="facebook" class="networws-icon-normal">
+                    <img src="./assets/img/icon_facebook_hover.svg" alt="facebook" class="networws-icon-hover">
+                </a>
+                <a href="https://twitter.com/giphy?lang=es" class="networws-icon-contents">
+                    <img src="./assets/img/icon-twitter.svg" alt="twitter" class="networws-icon-normal twitter-icon-normal">
+                    <img src="./assets/img/icon-twitter-hover.svg" alt="twitter" class="networws-icon-hover twitter-icon-hover">
+                </a>
+                <a href="https://www.instagram.com/giphy/?hl=es" class="networws-icon-contents">
+                    <img src="./assets/img/icon_instagram.svg" alt="instagram" class="networws-icon-normal">
+                    <img src="./assets/img/icon_instagram-hover.svg" alt="instagram" class="networws-icon-hover">
+                </a>
+            </div>
+            <h5 class="content-footer">© gifos 2020 All Rights Reserved.</h5>
+        </footer>
+        <!-- LINEA INFERIOR MORADA -->
+        <hr class="all-lines pruebas">
+    </div>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="./scripts/script_functions.js"></script>
+    <script src="./scripts/section_header.js"></script>
+    <script src="./scripts/section_dark.js"></script>
+    <script src="./scripts/section_favorite.js"></script>
+    <script src="./scripts/section_search.js"></script>
+    <script src="./scripts/section_trending.js"></script>
+    <script src="./scripts/section_myGifos.js"></script>
+</body>
+</html>
